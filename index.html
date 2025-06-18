@@ -3,77 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>record.coffee</title>
+    <title>record.coffee - Your Brew, Perfected</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@700&family=Inter:wght@400;500&family=Lora:wght@500&display=swap" rel="stylesheet">
+    
     <style>
+        /* Define custom color palette and fonts */
+        :root {
+            --bg-color: #121212; /* A softer, deep charcoal instead of pure black */
+            --text-color: #EAEAEA; /* A slightly off-white for softer text */
+            --accent-color: #D4C5B4; /* A warm, coffee-cream accent */
+            --primary-font: 'Inter', sans-serif;
+            --heading-font: 'Lora', serif;
+            --logo-font: 'Figtree', sans-serif;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f1ea;
-            color: #333;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
+            font-family: var(--primary-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            /* Add a subtle gradient for depth */
+            background-image: radial-gradient(circle at top, #1a1a1a, var(--bg-color));
         }
-        .container {
-            max-width: 600px;
-            padding: 40px;
-        }
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #6f4e37; /* Coffee brown color */
-            margin-bottom: 20px;
-        }
+
         h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-family: var(--heading-font);
         }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 30px;
+        
+        /* Entrance animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .cta-button {
-            display: inline-block;
-            background-color: #6f4e37;
-            color: #fff;
-            padding: 15px 40px; /* Adjusted padding for a smaller button */
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            margin-top: 20px;
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0; /* Start as invisible */
         }
-        .cta-button:hover {
-            background-color: #5a3f2b;
+        
+        /* Staggered animation delays for a graceful entrance */
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
+
+        /* Styling for the waitlist button */
+        .waitlist-btn {
+            background-color: #FFFFFF;
+            color: #333333;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .waitlist-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 197, 180, 0.2);
         }
-        footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: #888;
+        
+        .text-logo {
+            font-family: var(--logo-font);
+            font-weight: 700;
+            letter-spacing: -1px;
         }
+
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="logo">record.coffee</div>
-        <h1>Your smart coffee journal.</h1>
-        <p>
-            Launching Soon!
+<body class="flex flex-col items-center justify-center min-h-screen antialiased">
+
+    <main class="text-center p-8 max-w-xl mx-auto flex flex-col items-center">
+        
+        <!-- Text Logo -->
+        <div class="text-5xl md:text-6xl text-logo text-white mb-10 fade-in delay-1">
+            record<span class="text-gray-500">.</span>coffee
+        </div>
+
+        
+        <!-- Product Description -->
+        <p class="text-lg text-gray-400 mb-10 max-w-md fade-in delay-3">
+            Stop guessing, start recording, gain valuable insights to perfect your brews.
         </p>
 
-        <a href="https://forms.gle/QbqrYnyrxbeMZzt1A" target="_blank" class="cta-button">
-            Join the waitlist.
-        </a>
+        <!-- Divider -->
+        <div class="w-20 h-px bg-gray-700 my-4 fade-in delay-4"></div>
+        
+        <!-- Waitlist Button -->
+        <div class="mt-8 fade-in delay-5">
+            <a href="https://docs.google.com/forms/u/0/" 
+               target="_blank" 
+               class="waitlist-btn inline-block font-semibold py-4 px-10 rounded-xl text-lg">
+                Join the Waitlist
+            </a>
+        </div>
 
-        <footer>
-            &copy; 2025 record.coffee. All Rights Reserved.
-        </footer>
-    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-8 text-center fade-in delay-5">
+        <p class="text-gray-600 text-sm">&copy; 2025 record.coffee. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
