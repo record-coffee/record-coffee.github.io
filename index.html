@@ -12,6 +12,84 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@700&family=Inter:wght@400;500&family=Lora:wght@500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>record.coffee</title>
+		<link rel="stylesheet" href="./style.css" />
+
+		<!-- === COUNTDOWN TIMER STYLES AND FONTS (Updated to Match Site) === -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+		<style>
+			/* Custom styles for a timer that matches your site's theme */
+			#timer-wrapper {
+                margin: 2.5rem auto; /* More vertical space */
+                max-width: 500px;   /* Constrain width */
+                padding: 0 1rem;    /* Padding for small screens */
+            }
+
+			#timer-container {
+				text-align: center;
+			}
+			
+            #timer-container h2 {
+                font-family: 'Inter', sans-serif;
+                font-size: 1.5rem; /* 24px */
+                font-weight: 700;
+                color: #333; /* Match your site's text color */
+                margin-bottom: 1.5rem;
+            }
+
+			.timer-grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 1rem; /* Space between boxes */
+			}
+
+			.timer-box {
+				background-color: #f0f0f0; /* Light grey, fits the theme */
+				padding: 1rem 0.5rem;
+				border-radius: 8px;
+                border: 1px solid #ddd;
+			}
+
+			.timer-box .time-value {
+				font-family: 'Roboto Mono', monospace;
+				font-size: 2.25rem; /* 36px */
+                line-height: 1;
+				color: #333;
+                font-weight: 700;
+			}
+
+			.timer-box .time-label {
+                font-family: sans-serif; /* Match your site's default font */
+				font-size: 0.75rem; /* 12px */
+				color: #666;
+                margin-top: 0.5rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+			}
+
+            #launch-message p {
+                font-family: 'Inter', sans-serif;
+                font-size: 1.75rem;
+                color: #333;
+                font-weight: 700;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 480px) {
+                .timer-box .time-value {
+                    font-size: 1.75rem; /* Smaller numbers on mobile */
+                }
+                .timer-grid {
+                    gap: 0.5rem; /* Tighter gap on mobile */
+                }
+            }
+		</style>
+		<!-- === END OF TIMER STYLES === -->
     
     <style>
         /* Define custom color palette and fonts */
@@ -94,7 +172,33 @@
 
         <!-- Divider -->
         <div class="w-20 h-px bg-gray-700 my-4 fade-in delay-4"></div>
-        
+                           <div id="timer-wrapper">
+                        <div id="timer-container">
+                            <h2 id="timer-title">Launching Soon</h2>
+                            <div id="countdown-timer" class="timer-grid">
+                                <!-- Days -->
+                                <div class="timer-box">
+                                    <div id="days" class="time-value">00</div>
+                                    <div class="time-label">Days</div>
+                                </div>
+                                <!-- Hours -->
+                                <div class="timer-box">
+                                    <div id="hours" class="time-value">00</div>
+                                    <div class="time-label">Hours</div>
+                                </div>
+                                <!-- Minutes -->
+                                <div class="timer-box">
+                                    <div id="minutes" class="time-value">00</div>
+                                    <div class="time-label">Minutes</div>
+                                </div>
+                                <!-- Seconds -->
+                                <div class="timer-box">
+                                    <div id="seconds" class="time-value">00</div>
+                                    <div class="time-label">Seconds</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         <!-- Waitlist Button -->
         <div class="mt-8 fade-in delay-5">
             <a href="https://forms.gle/QbqrYnyrxbeMZzt1A" 
